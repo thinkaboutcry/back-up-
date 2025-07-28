@@ -1,0 +1,31 @@
+-- Load the Wizard GUI library
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/thinkaboutcry/back-up-/heads/main/wizard"))()
+
+-- Create main window
+local Window = Library:NewWindow("Key Hold Tool")
+
+-- Create section
+local Section = Window:NewSection("Controls")
+
+-- State variable
+local holding = false
+
+-- Get VirtualInputManager
+local Vim = game:GetService("VirtualInputManager")
+
+-- Function to hold E key
+local function holdE()
+    while holding do
+        Vim:SendKeyEvent(true, Enum.KeyCode.E, false, game)
+        wait(0.1) -- simulate holding
+    end
+    Vim:SendKeyEvent(false, Enum.KeyCode.E, false, game)
+end
+
+-- Toggle button
+Section:CreateToggle("Hold E", function(state)
+    holding = state
+    if state then
+        task.spawn(holdE)
+    end
+end)
